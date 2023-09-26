@@ -1,4 +1,4 @@
-from tests.system.base_test import BaseTest
+from tests.system.experian_base_test import BaseTest
 from experian_poc import experian_poc  # experian_poc is a flask app
 #  when we are importing it, server will run in the background but that should not happen
 #  but having __name__ == __main__ is helping it not to run

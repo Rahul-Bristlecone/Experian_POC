@@ -4,7 +4,6 @@
 # It makes sure that database is blank and new each time after instantiation
 
 from unittest import TestCase
-from experian_poc import experian_poc
 from app import app
 from db import db  # for SQLAlchemy database instance
 
@@ -12,9 +11,11 @@ from db import db  # for SQLAlchemy database instance
 class BaseTest(TestCase):
     # Set up the test client
     # make db blank after each test
-    def SetUp(self):
+    SQLALCHEMY_DATABASE_URI = "sqlite:///"
+
+    def setUp(self):
         # Runs before every test
-        db.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///'
+        app.config["SQLALCHEMY_DATABASE_URI"] = BaseTest.SQLALCHEMY_DATABASE_URI
         with app.app_context():
             db.init_app(app)
             db.create_all()
