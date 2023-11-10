@@ -1,10 +1,5 @@
-def print_rangoli(size):
-    for n in range(size):
-        for m in range(size, 0):
-            print("* ", end="")  # restrict creating new line
-        print("\r")
-
-
-if __name__ == '__main__':
-    n = int(input("Enter rangoli size"))
-    print_rangoli(n)
+size = 5
+for n in range(1,int(size)+1):
+    print("0"*(size-1)+"*"*n, end="")  # restrict creating new line
+    print("\r")
+    size = size-1
